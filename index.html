@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con JSONPLACEHOLDER</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .divider-50 {
+            width: 50%;
+            border-radius: 5px;
+            height: .10rem;
+            background-color: lightgrey;
+        }
+
+        .form-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            margin: .3rem auto;
+        }
+
+        .form-control label {
+            padding-bottom: .2rem;
+            align-self: flex-start;
+        }
+
+        @media (max-width: 640px) { 
+            main {
+
+                padding: .5rem;
+            }
+        }
+
+    </style>
+</head>
+<body class="container mx-auto bg-yellow-50">
+    <h1 class="title font-bold text-4xl py-3 uppercase">Crear POST</h1>
+    <main>
+
+        <section class=" flex flex-col items-center justify-center w-full border rounded-lg shadow p-3 bg-gray-100 relative">
+
+            <form  class="crud-form flex flex-col justify-center items-center w-4/5 p-3 " >
+                <div class="form-control">
+                    <label for="title"> Ingresa un Título </label>
+                    <input type="text" class="border rounded-lg shadow w-full p-2" maxlength="100" title="Por favor, completa este campo con un título" name="title" id="title" required>
+                </div>
+                <div class="form-control">
+                    <label for="body">Ingresa un Post</label>
+                    <textarea name="body" class="border rounded-lg shadow w-full p-2" maxlength="250" title="Por favor, completa este campo con un post" id="body" cols="30" rows="10" required></textarea>
+                </div>
+
+                <input type="hidden" name="id">
+
+                
+                <button type="submit" class="flex justify-center items-center self-end bg-blue-500 hover:bg-blue-600 text-white transition-colors border rounded-xl font-bold shadow p-2 mt-2 focus:outline-none cursor-pointer">CREAR POST</button>
+                
+            </form> 
+            
+            <span id="custom-alert" class="self-start transition-all absolute opacity-0 font-bold" style="left: 7.7rem; bottom: 2rem;"></span>
+
+        </section>
+
+
+        <section class=" my-4 pt-3 content-post" ></section>
+
+    </main>
+
+
+    <template id="crud-template">
+
+        <article class="border rounded-lg shadow my-4 p-3 bg-gray-50">
+            <div class="title-post">
+                <p class="text-2xl py-2"></p>
+            </div>
+
+            <div class="divider-50"></div>
+
+            <div class="body-post py-3">
+                <p></p>
+                
+            </div>
+
+            <div class="actions flex w-full justify-end items-end py-3 ">
+
+                <button  class="edit flex justify-center items-center bg-yellow-400 hover:bg-yellow-500 transition-colors text-white border rounded-xl font-bold shadow p-2 focus:outline-none  ">EDITAR <img src="assets/pencil-alt-solid.svg" style="margin-left: .5rem; width: 15px;" alt="edit post">
+                </button>
+
+                <button  class="delete flex justify-center items-center bg-red-500 hover:bg-red-600 text-white transition-colors border rounded-xl font-bold shadow p-2 ml-2 focus:outline-none  ">ELIMINAR <img src="assets/times-solid.svg" style=" margin-left: .5rem; width: 15px;" alt="delete post"> </button>
+            </div>
+
+        </article>
+      
+    </template>
+
+    <script src="crud.js"></script>
+</body>
+</html>
