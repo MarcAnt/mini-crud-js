@@ -192,20 +192,23 @@ d.addEventListener("submit", async (e) => {
   }
 });
 
+// Aca controlamos los botones de editar y de eliminar
+
 d.addEventListener("click", async (e) => {
+
   if (e.target.matches(".edit")) {
 
     scrollToEdit();
     $title.textContent = "Editar Post";
     $form.querySelector('button[type="submit"]').textContent = "EDITAR POST";
 
-    //aqui se asigan los valores a input correspondiente
+    //aqui se asigan los valores a cada input correspondiente
     $form.title.value = e.target.dataset.title;
-    // $form.body.value = e.target.dataset.title;
     $form.body.textContent = e.target.dataset.body;
 
     //Este es el elemento input hidden que permite evaluar ahora si se va a editar el elemento
     $form.id.value = e.target.dataset.id;
+    
   }
 
   if (e.target.matches(".delete")) {
